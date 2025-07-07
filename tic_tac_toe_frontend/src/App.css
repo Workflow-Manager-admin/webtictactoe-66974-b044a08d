@@ -1,0 +1,261 @@
+/* CSS Variables for Theme Management */
+:root {
+  /* Light theme colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #282c34;
+  --text-secondary: #61dafb;
+  --border-color: #e9ecef;
+  --button-bg: #007bff;
+  --button-text: #ffffff;
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #282c34;
+  --text-primary: #ffffff;
+  --text-secondary: #61dafb;
+  --border-color: #404040;
+  --button-bg: #0056b3;
+  --button-text: #ffffff;
+}
+
+.App {
+  text-align: center;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: var(--bg-secondary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.App-link {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+/* --- TIC TAC TOE STYLES --- */
+
+.ttt-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 40px;
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.ttt-title {
+  margin: 0 0 12px 0;
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #1976D2;
+  letter-spacing: 1.5px;
+}
+
+.ttt-scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+.ttt-scoreboard .ttt-score {
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.ttt-status {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+.ttt-status-winner {
+  color: #FBC02D;
+  font-weight: 700;
+}
+.ttt-status-draw {
+  color: #757575;
+  font-weight: 600;
+}
+.ttt-status-next {
+  font-weight: 600;
+}
+.ttt-status-X {
+  color: #1976D2;
+}
+.ttt-status-O {
+  color: #FBC02D;
+}
+
+.ttt-board {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--bg-secondary);
+  border-radius: 18px;
+  padding: 22px 18px 16px 18px;
+  box-shadow: 0 2px 10px rgba(30, 64, 175, 0.05);
+}
+
+.ttt-board-row {
+  display: flex;
+}
+
+.ttt-square {
+  width: 72px;
+  height: 72px;
+  border: 2px solid #e9ecef;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #282c34;
+  font-size: 2.3rem;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  transition: background-color 0.18s, border 0.2s;
+  cursor: pointer;
+  border-radius: 12px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.ttt-square:last-child {
+  margin-right: 0;
+}
+.ttt-board-row:last-child .ttt-square {
+  margin-bottom: 0;
+}
+
+.ttt-square:active,
+.ttt-square:focus {
+  border: 2px solid #1976D2;
+}
+.ttt-square.highlight {
+  background: #FBC02D22;
+  border: 2px solid #FBC02D;
+  color: #FBC02D;
+}
+
+.ttt-reset-btn {
+  margin-top: 26px;
+  font-size: 1rem;
+  padding: 10px 30px;
+  border-radius: 8px;
+  border: none;
+  background: #1976D2;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(25, 118, 210, 0.09);
+  transition: background 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+.ttt-reset-btn:hover, .ttt-reset-btn:focus {
+  background: #1253a6;
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .ttt-main {
+    padding-top: 8vw;
+  }
+  .ttt-title {
+    font-size: 1.6rem;
+  }
+  .ttt-board {
+    padding: 6vw 3vw 3vw 3vw;
+  }
+  .ttt-board-row {
+    /* nothing extra */
+  }
+  .ttt-square {
+    width: 19vw;
+    height: 19vw;
+    min-width: 50px;
+    min-height: 50px;
+    font-size: 1.5rem;
+  }
+  .ttt-scoreboard {
+    font-size: 1rem;
+    gap: 18px;
+  }
+  .ttt-reset-btn {
+    font-size: 0.9rem;
+    padding: 8px 22px;
+    margin-top: 14px;
+  }
+}
+
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  opacity: 0.9;
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}
